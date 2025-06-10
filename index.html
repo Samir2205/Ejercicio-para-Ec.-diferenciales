@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamic Models - Future Tech</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <link href="style.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="text-center py-4">
+    <h1 class="display-4 text-uppercase fw-bold">Numerical Methods for Dynamic Systems</h1>
+    <nav class="navbar navbar-expand-lg mx-auto mt-4" style="max-width: 950px;">
+      <div class="container-fluid justify-content-center gap-5">
+        <a class="nav-link" href="#simulation-a"><i class="fas fa-microchip"></i> Population Dynamics</a>
+        <a class="nav-link" href="#simulation-b"><i class="fas fa-robot"></i> Tumor Growth Analysis</a>
+        <a class="nav-link" href="#simulation-c"><i class="fas fa-rocket"></i> Projectile Velocity</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container py-5">
+    <section id="simulation-a" class="mb-5 p-4 rounded-3 shadow-lg">
+      <h2 class="text-warning mb-4">Simulation A – Population Dynamics</h2>
+      <p class="lead">Logistic Model with Environmental Constraints.</p>
+      <div class="text-center my-4">
+        <img src="img/problema37.jpg" alt="Population Dynamics Problem" class="img-fluid rounded">
+      </div>
+      <div class="alert alert-dark border-secondary" role="alert">
+        <strong class="text-info">Default Parameters:</strong> Initial Population = 100, Simulation End Time = 20 years, Step Size = 0.1 years.
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <label class="form-label text-light">Initial Population (units)</label>
+          <input type="number" id="y0_37" class="form-control form-control-dark" value="100">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-light">Final Time (years)</label>
+          <input type="number" id="tf_37" class="form-control form-control-dark" value="20">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-light">Step Size (years)</label>
+          <input type="number" step="0.01" id="h_37" class="form-control form-control-dark" value="0.1">
+        </div>
+      </div>
+      <canvas id="grafico37" class="bg-dark rounded p-2"></canvas>
+      <div id="resultados37" class="table-responsive mt-4"></div>
+      <div id="conclusion37" class="conclusion-card mt-5"></div>
+    </section>
+
+    <section id="simulation-b" class="mb-5 p-4 rounded-3 shadow-lg">
+      <h2 class="text-warning mb-4">Simulation B – Tumor Growth Analysis</h2>
+      <p class="lead">Saturated Growth Model.</p>
+      <div class="text-center my-4">
+        <img src="img/problema39.jpg" alt="Tumor Growth Problem" class="img-fluid rounded">
+      </div>
+      <div class="alert alert-dark border-secondary" role="alert">
+        <strong class="text-info">Default Parameters:</strong> Growth Rate α = 0.8, Saturation Capacity k = 60 mm², Exponent ν = 0.25, Initial Area A₀ = 1 mm², Simulation Duration = 30 days. (Fixed Step Size h = 0.1)
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-3">
+          <label class="form-label text-light">Growth Rate α</label>
+          <input type="number" step="0.01" id="alpha_39" class="form-control form-control-dark" value="0.8">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-light">Capacity k (mm²)</label>
+          <input type="number" id="k_39" class="form-control form-control-dark" value="60">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-light">Exponente ν</label>
+          <input type="number" step="0.01" id="nu_39" class="form-control form-control-dark" value="0.25">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-light">Initial Area A₀ (mm²)</label>
+          <input type="number" step="0.1" id="A0_39" class="form-control form-control-dark" value="1">
+        </div>
+        <div class="col-md-3">
+          <label class="form-label text-light">Simulation Duration (days)</label>
+          <input type="number" id="tf_39" class="form-control form-control-dark" value="30">
+        </div>
+      </div>
+      <canvas id="grafico39" class="bg-dark rounded p-2"></canvas>
+      <div id="resultados39" class="table-responsive mt-4"></div>
+      <div id="conclusion39" class="conclusion-card mt-5"></div>
+    </section>
+
+    <section id="simulation-c" class="mb-5 p-4 rounded-3 shadow-lg">
+      <h2 class="text-warning mb-4">Simulation C – Projectile Velocity</h2>
+      <p class="lead">Free Fall with Quadratic Air Resistance.</p>
+      <div class="text-center my-4">
+        <img src="img/problema40.jpg" alt="Projectile Velocity Problem" class="img-fluid rounded">
+      </div>
+      <div class="alert alert-dark border-secondary" role="alert">
+        <strong class="text-info">Default Parameters:</strong> Initial Velocity = 0 m/s, Simulation End Time = 100 s, Step Size = 0.25 s.
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-4">
+          <label class="form-label text-light">Initial Velocity (m/s)</label>
+          <input type="number" id="y0_40" class="form-control form-control-dark" value="0">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-light">Tiempo final (s)</label>
+          <input type="number" id="tf_40" class="form-control form-control-dark" value="100">
+        </div>
+        <div class="col-md-4">
+          <label class="form-label text-light">Paso (s)</label>
+          <input type="number" step="0.01" id="h_40" class="form-control form-control-dark" value="0.25">
+        </div>
+      </div>
+      <canvas id="grafico40" class="bg-dark rounded p-2"></canvas>
+      <div id="resultados40" class="table-responsive mt-4"></div>
+      <div id="conclusion40" class="conclusion-card mt-5"></div>
+    </section>
+
+  </main>
+
+  <footer class="text-center py-4 mt-5">
+    <p>&copy; 2025 - Numerical Methods by Angela Miriam Chambi Loza</p>
+  </footer>
+
+  <div class="fixed-actions-container">
+    <button class="btn btn-outline-info" onclick="runCurrentSectionHeun()">Heun Method</button>
+    <button class="btn btn-outline-danger" onclick="runCurrentSectionRK4()">RK4 Method</button>
+    <button class="btn btn-success" onclick="compareCurrentSection()">Compare Models</button>
+  </div>
+
+
+  <script>
+    // Helper function to get the currently visible section ID
+    function getCurrentSectionId() {
+        const sections = ['simulation-a', 'simulation-b', 'simulation-c'];
+        const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+        let currentSection = sections[0]; // Default to the first section
+
+        for (let i = 0; i < sections.length; i++) {
+            const section = document.getElementById(sections[i]);
+            if (section) {
+                const rect = section.getBoundingClientRect();
+                // Check if the section is mostly in view
+                if (rect.top <= (window.innerHeight / 2) && rect.bottom >= (window.innerHeight / 2)) {
+                    currentSection = sections[i];
+                    break;
+                }
+            }
+        }
+        return currentSection;
+    }
+
+    // Functions to run Heun/RK4/Compare for the current section
+    function runCurrentSectionHeun() {
+        const sectionId = getCurrentSectionId();
+        if (sectionId === 'simulation-a') runEj37Heun();
+        else if (sectionId === 'simulation-b') runEj39Heun();
+        else if (sectionId === 'simulation-c') runEj40Heun();
+    }
+
+    function runCurrentSectionRK4() {
+        const sectionId = getCurrentSectionId();
+        if (sectionId === 'simulation-a') runEj37RK4();
+        else if (sectionId === 'simulation-b') runEj39RK4();
+        else if (sectionId === 'simulation-c') runEj40RK4();
+    }
+
+    function compareCurrentSection() {
+        const sectionId = getCurrentSectionId();
+        if (sectionId === 'simulation-a') compararEj37();
+        else if (sectionId === 'simulation-b') compararEj39();
+        else if (sectionId === 'simulation-c') compararEj40();
+    }
+
+
+    function limpiarCanvas(id) {
+      if (window[id + '_chart']) {
+        window[id + '_chart'].destroy();
+        delete window[id + '_chart'];
+      }
+    }
+
+    function f37(t, y) {
+      const L = 10000, k = 0.01;
+      return k * y * (1 - y / L);
+    }
+
+    function runEj37Heun() {
+      const y0 = parseFloat(document.getElementById('y0_37').value);
+      const tf = parseFloat(document.getElementById('tf_37').value);
+      const h = parseFloat(document.getElementById('h_37').value);
+      resolver('grafico37', f37, y0, tf, h, 'resultados37', 'Heun', 'conclusion37');
+    }
+
+    function runEj37RK4() {
+      const y0 = parseFloat(document.getElementById('y0_37').value);
+      const tf = parseFloat(document.getElementById('tf_37').value);
+      const h = parseFloat(document.getElementById('h_37').value);
+      resolverRK4('grafico37', f37, y0, tf, h, 'resultados37', 'RK4', 'conclusion37');
+    }
+
+    // Function for Exercise 39 model
+    function f39(t, A) {
+      const alpha = parseFloat(document.getElementById('alpha_39').value);
+      const k = parseFloat(document.getElementById('k_39').value);
+      const nu = parseFloat(document.getElementById('nu_39').value);
+      return alpha * Math.pow(A, nu) * (1 - A / k);
+    }
+
+    function runEj39Heun() {
+      const A0 = parseFloat(document.getElementById('A0_39').value);
+      const tf = parseFloat(document.getElementById('tf_39').value);
+      const h = 0.1;
+      resolver('grafico39', f39, A0, tf, h, 'resultados39', 'Heun', 'conclusion39');
+    }
+
+    function runEj39RK4() {
+      const A0 = parseFloat(document.getElementById('A0_39').value);
+      const tf = parseFloat(document.getElementById('tf_39').value);
+      const h = 0.1;
+      resolverRK4('grafico39', f39, A0, tf, h, 'resultados39', 'RK4', 'conclusion39');
+    }
+
+    // Function for Exercise 40 model
+    function f40(t, v) {
+      const g = 9.81;
+      const k = 0.0025;
+      return g - k * v * Math.abs(v);
+    }
+
+    function runEj40Heun() {
+      const v0 = parseFloat(document.getElementById('y0_40').value);
+      const tf = parseFloat(document.getElementById('tf_40').value);
+      const h = parseFloat(document.getElementById('h_40').value);
+      resolver('grafico40', f40, v0, tf, h, 'resultados40', 'Heun', 'conclusion40');
+    }
+
+    function runEj40RK4() {
+      const v0 = parseFloat(document.getElementById('y0_40').value);
+      const tf = parseFloat(document.getElementById('tf_40').value);
+      const h = parseFloat(document.getElementById('h_40').value);
+      resolverRK4('grafico40', f40, v0, tf, h, 'resultados40', 'RK4', 'conclusion40');
+    }
+
+    function resolver(canvasId, f, y0, tf, h, resultDivId, methodName, conclusionDivId) {
+      limpiarCanvas(canvasId);
+      const t0 = 0, n = Math.floor((tf - t0) / h);
+      let t = t0, y = y0;
+      const data = { labels: [], datasets: [{ label: methodName, data: [], borderColor: '#00e6e6', fill: false, tension: 0.1 }] }; // Changed color
+      const resultados = [];
+      for (let i = 0; i <= n; i++) {
+        data.labels.push(t.toFixed(2));
+        data.datasets[0].data.push(y);
+        resultados.push({ t: t.toFixed(2), y: y.toFixed(6) });
+        let yEuler = y + h * f(t, y);
+        y = y + (h / 2) * (f(t, y) + f(t + h, yEuler));
+        t += h;
+      }
+      renderChart(canvasId, data);
+      mostrarResultados(resultDivId, resultados);
+      // Ensure the conclusion card is visible after rendering
+      mostrarConclusion(conclusionDivId, methodName, resultados[resultados.length - 1].y);
+      document.getElementById(conclusionDivId).classList.add('show'); // Add this line
+    }
+
+    function resolverRK4(canvasId, f, y0, tf, h, resultDivId, methodName, conclusionDivId) {
+      limpiarCanvas(canvasId);
+      const t0 = 0, n = Math.floor((tf - t0) / h);
+      let t = t0, y = y0;
+      const data = { labels: [], datasets: [{ label: methodName, data: [], borderColor: '#ff6600', fill: false, tension: 0.1 }] }; // Changed color
+      const resultados = [];
+      for (let i = 0; i <= n; i++) {
+        data.labels.push(t.toFixed(2));
+        data.datasets[0].data.push(y);
+        resultados.push({ t: t.toFixed(2), y: y.toFixed(6) });
+        const k1 = h * f(t, y);
+        const k2 = h * f(t + h / 2, y + k1 / 2);
+        const k3 = h * f(t + h / 2, y + k2 / 2);
+        const k4 = h * f(t + h, y + k3);
+        y += (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+        t += h;
+      }
+      renderChart(canvasId, data);
+      mostrarResultados(resultDivId, resultados);
+      // Ensure the conclusion card is visible after rendering
+      mostrarConclusion(conclusionDivId, methodName, resultados[resultados.length - 1].y);
+      document.getElementById(conclusionDivId).classList.add('show'); // Add this line
+    }
+
+    function renderChart(id, chartData) {
+      const ctx = document.getElementById(id).getContext('2d');
+      if (window[id + '_chart']) {
+          window[id + '_chart'].destroy();
+      }
+      window[id + '_chart'] = new Chart(ctx, {
+        type: 'line',
+        data: chartData,
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: 'top',
+              labels: {
+                color: '#fff' // White legend labels
+              }
+            },
+            title: {
+              display: true,
+              text: 'Numerical Model Solution',
+              color: '#eee' // Light gray title
+            }
+          },
+          animation: { duration: 1000, easing: 'easeOutQuart' },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Time (t)',
+                color: '#aaa' // Axis title color
+              },
+              ticks: {
+                color: '#ccc' // Axis tick labels color
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.1)' // Lighter grid lines
+              }
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'y(t)',
+                color: '#aaa' // Axis title color
+              },
+              ticks: {
+                color: '#ccc' // Axis tick labels color
+              },
+              grid: {
+                color: 'rgba(255,255,255,0.1)' // Lighter grid lines
+              }
+            }
+          }
+        }
+      });
+    }
+
+    function mostrarResultados(divId, resultados) {
+      const container = document.getElementById(divId);
+      if (!container) return;
+      let html = `<div class="results-table-container">`; // Custom class for styling
+      html += `<table class="table table-sm table-striped table-bordered text-center mb-0 table-dark-results"><thead><tr><th>t</th><th>y(t)</th></tr></thead><tbody>`;
+      for (const r of resultados) {
+        html += `<tr><td>${r.t}</td><td>${r.y}</td></tr>`;
+      }
+      html += `</tbody></table></div>`;
+      container.innerHTML = html;
+    }
+
+    function compararEj37() {
+      const y0 = parseFloat(document.getElementById('y0_37').value);
+      const tf = parseFloat(document.getElementById('tf_37').value);
+      const h = parseFloat(document.getElementById('h_37').value);
+      compararMetodos('grafico37', f37, y0, tf, h, 'resultados37', 'conclusion37');
+    }
+
+    function compararEj39() {
+      const A0 = parseFloat(document.getElementById('A0_39').value);
+      const tf = parseFloat(document.getElementById('tf_39').value);
+      const h = 0.1;
+      compararMetodos('grafico39', f39, A0, tf, h, 'resultados39', 'conclusion39');
+    }
+
+    function compararEj40() {
+      const v0 = parseFloat(document.getElementById('y0_40').value);
+      const tf = parseFloat(document.getElementById('tf_40').value);
+      const h = parseFloat(document.getElementById('h_40').value);
+      compararMetodos('grafico40', f40, v0, tf, h, 'resultados40', 'conclusion40');
+    }
+
+    function compararMetodos(canvasId, f, y0, tf, h, resultDivId, conclusionDivId) {
+      limpiarCanvas(canvasId);
+      const t0 = 0, n = Math.floor((tf - t0) / h);
+      let t = t0, yH = y0, yR = y0;
+
+      const data = {
+        labels: [],
+        datasets: [
+          {
+            label: "Heun Method",
+            data: [],
+            borderColor: "#00e6e6", // Cyan for Heun
+            fill: false,
+            tension: 0.1
+          },
+          {
+            label: "RK4 Method",
+            data: [],
+            borderColor: "#ff6600", // Orange for RK4
+            fill: false,
+            tension: 0.1
+          }
+        ]
+      };
+
+      const resultados = [];
+
+      for (let i = 0; i <= n; i++) {
+        data.labels.push(t.toFixed(2));
+        data.datasets[0].data.push(yH);
+        data.datasets[1].data.push(yR);
+        resultados.push({ t: t.toFixed(2), heun: yH.toFixed(6), rk4: yR.toFixed(6) });
+
+        // Heun
+        const yEuler = yH + h * f(t, yH);
+        yH = yH + (h / 2) * (f(t, yH) + f(t + h, yEuler));
+
+        // RK4
+        const k1 = h * f(t, yR);
+        const k2 = h * f(t + h / 2, yR + k1 / 2);
+        const k3 = h * f(t + h / 2, yR + k2 / 2);
+        const k4 = h * f(t + h, yR + k3);
+        yR += (k1 + 2 * k2 + 2 * k3 + k4) / 6;
+
+        t += h;
+      }
+
+      renderChart(canvasId, data);
+      mostrarResultadosComparados(resultDivId, resultados);
+      // Ensure the conclusion card is visible after rendering
+      mostrarConclusionComparativa(conclusionDivId, resultados[resultados.length - 1].heun, resultados[resultados.length - 1].rk4);
+      document.getElementById(conclusionDivId).classList.add('show'); // Add this line
+    }
+
+    function mostrarResultadosComparados(divId, resultados) {
+      const container = document.getElementById(divId);
+      if (!container) return;
+      let html = `<div class="results-table-container">`; // Custom class for styling
+      html += `<table class="table table-sm table-striped table-bordered text-center mb-0 table-dark-results"><thead><tr><th>Time (t)</th><th>Heun y(t)</th><th>RK4 y(t)</th></tr></thead><tbody>`;
+      for (const r of resultados) {
+        html += `<tr><td>${r.t}</td><td>${r.heun}</td><td>${r.rk4}</td></tr>`;
+      }
+      html += `</tbody></table></div>`;
+      container.innerHTML = html;
+    }
+
+    function mostrarConclusion(divId, methodName, finalValue) {
+      const conclusionDiv = document.getElementById(divId);
+      if (!conclusionDiv) return;
+      let title = "";
+      let conclusionText = "";
+
+      if (divId === 'conclusion37') {
+        title = "Simulation A: Population Dynamics Analysis 📈";
+        conclusionText = `
+          <p>Using the **${methodName}** method, the estimated final population is approximately **${parseFloat(finalValue).toFixed(2)}** units. This result clearly shows how population growth, following a logistic model, **naturally stabilizes** as it approaches an environmental carrying capacity. It's a fundamental concept in ecology, demonstrating the self-regulating nature of populations under limited resources.</p>
+          <p class="method-insight">The **${methodName}** method, a **second-order (Heun)** or **fourth-order (RK4)** approximation, effectively captures the non-linear dynamics of this growth, offering a robust prediction for long-term population trends.</p>
+        `;
+      } else if (divId === 'conclusion39') {
+        title = "Simulation B: Tumor Growth Evaluation 🔬";
+        conclusionText = `
+          <p>Applying the **${methodName}** method, the final tumor area is approximately **${parseFloat(finalValue).toFixed(2)} mm²**. This simulation vividly illustrates the **saturated growth model**, where tumor expansion decelerates significantly as it reaches its maximum viable size. This behavior is typically attributed to factors like nutrient availability, space, and waste accumulation within the tumor microenvironment.</p>
+          <p class="method-insight">The **${methodName}** method provides a reliable numerical solution to this complex biological process, highlighting how mathematical models can predict growth patterns crucial for medical research and treatment strategies.</p>
+        `;
+      } else if (divId === 'conclusion40') {
+        title = "Simulation C: Projectile Velocity Interpretation 🚀";
+        conclusionText = `
+          <p>With the **${methodName}** method, the object's final velocity is approximately **${parseFloat(finalValue).toFixed(2)} m/s**. This fascinating outcome demonstrates the concept of **terminal velocity**. As the object falls, air resistance (which is quadratic to velocity) increases until it perfectly balances the gravitational force, preventing further acceleration. It's why a feather and a bowling ball fall differently in the atmosphere but the same in a vacuum!</p>
+          <p class="method-insight">The **${methodName}** method accurately models these dynamic forces, showing how fluid resistance plays a critical role in the motion of objects through a medium, leading to a stable maximum speed.</p>
+        `;
+      }
+      conclusionDiv.innerHTML = `
+        <div class="card conclusion-card-style">
+          <div class="card-header conclusion-header">
+            <h3 class="card-title mb-0">${title}</h3>
+          </div>
+          <div class="card-body conclusion-body">
+            ${conclusionText}
+          </div>
+        </div>
+      `;
+    }
+
+    function mostrarConclusionComparativa(divId, heunFinal, rk4Final) {
+      const conclusionDiv = document.getElementById(divId);
+      if (!conclusionDiv) return;
+      let title = "";
+      let conclusionText = "";
+
+      if (divId === 'conclusion37') {
+        title = "Comparative Analysis: Population Dynamics 📊";
+        conclusionText = `
+          <p>For **Simulation A (Population Dynamics)**, the **Heun Method** estimates a final population of **${parseFloat(heunFinal).toFixed(2)}** units, while the **RK4 Method** estimates **${parseFloat(rk4Final).toFixed(2)}** units. Both methods effectively trace the logistic growth curve, showcasing how populations stabilize. The slight differences in their final values highlight their inherent accuracy.</p>
+          <h4 class="comparison-subtitle">Understanding the Differences:</h4>
+          <p>The **Heun Method (Order 2)**, also known as the improved Euler method, offers a significant accuracy boost over the basic Euler by averaging slopes. It's like taking a more informed step, considering both your current direction and a predicted future direction. It's generally stable and efficient for many problems.</p>
+          <p>The **RK4 Method (Order 4)**, often considered the "gold standard" for non-stiff ODEs, takes this refinement much further. It evaluates the derivative (the slope) at four different points within each step and then combines these evaluations optimally. This multi-point sampling makes it **remarkably more accurate** for the same step size, leading to results that are often much closer to the true analytical solution, especially in systems with rapid changes or long simulation durations.</p>
+          <p class="mt-3">In essence, if Heun is taking one careful look before a step, RK4 is taking four strategic peeks, giving it a much clearer picture of the path ahead! For precision-critical applications, RK4 is almost always the preferred choice.</p>
+        `;
+      } else if (divId === 'conclusion39') {
+        title = "Comparative Analysis: Tumor Growth Accuracy 🧬";
+        conclusionText = `
+          <p>In **Simulation B (Tumor Growth)**, the **Heun Method** yields a final tumor area of **${parseFloat(heunFinal).toFixed(2)} mm²**, and the **RK4 Method** yields **${parseFloat(rk4Final).toFixed(2)} mm²**. While both illustrate the tumor's growth pattern toward saturation, RK4's result is typically considered more accurate due to its superior error-reducing capabilities.</p>
+          <h4 class="comparison-subtitle">Why RK4 Excels Here:</h4>
+          <p>For a non-linear system like tumor growth, where the rate of change itself depends on the current tumor size, higher-order methods like RK4 become crucial. The **Heun Method's** two-point evaluation is good, but **RK4's** four-point evaluation provides a much finer approximation of the derivative's behavior across the interval. This means RK4 better handles the subtle changes in growth rate as the tumor approaches its saturation limit, providing a more reliable prediction for complex biological systems.</p>
+          <p class="mt-3">Imagine trying to draw a curve. Heun draws a line by looking at two points, while RK4 uses four points, resulting in a much smoother, more accurate curve. For sensitive medical modeling, this higher precision is invaluable!</p>
+        `;
+      } else if (divId === 'conclusion40') {
+        title = "Comparative Analysis: Projectile Velocity Precision 💨";
+        conclusionText = `
+          <p>For **Simulation C (Projectile Velocity)**, the **Heun Method** predicts a final velocity of **${parseFloat(heunFinal).toFixed(2)} m/s**, while the **RK4 Method** predicts **${parseFloat(rk4Final).toFixed(2)} m/s**. Both effectively demonstrate the attainment of terminal velocity due to air resistance. The slight numerical difference showcases RK4's higher precision.</p>
+          <h4 class="comparison-subtitle">Accuracy in Action:</h4>
+          <p>In physical simulations involving non-linear forces like quadratic air resistance, the accuracy of the numerical method directly impacts the reliability of the predicted trajectory and final state. The **Heun Method** offers a good balance for many engineering problems, providing solid approximate solutions.</p>
+          <p>However, the **RK4 Method's** enhanced accuracy, derived from its four-stage evaluation, allows it to model the continuous interplay between gravity and air resistance with greater fidelity. This leads to a more precise determination of when and at what value terminal velocity is reached. For scenarios where even small errors could accumulate or have significant consequences (e.g., aerospace engineering), RK4's robustness makes it the superior choice.</p>
+          <p class="mt-3">RK4's ability to "see ahead" with multiple slope estimates per step means it adapts better to changing forces, providing a more confident prediction of the object's true motion.</p>
+        `;
+      }
+
+      conclusionDiv.innerHTML = `
+        <div class="card conclusion-card-style comparison-card">
+          <div class="card-header conclusion-header comparison-header">
+            <h3 class="card-title mb-0">${title}</h3>
+          </div>
+          <div class="card-body conclusion-body">
+            ${conclusionText}
+          </div>
+        </div>
+      `;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,283 @@
+/* General Body and Container Styles */
+body {
+    background-color: #1a1a1a; /* Dark background */
+    color: #f8f9fa; /* Light text color */
+    font-family: 'Share Tech Mono', monospace; /* Futuristic monospaced font */
+    line-height: 1.6;
+    margin: 0;
+    padding-bottom: 80px; /* Space for fixed action buttons */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+h1, h2, h3 {
+    font-family: 'Orbitron', sans-serif; /* Aggressive, futuristic font for headings */
+    color: #00e6e6; /* Bright cyan for headings */
+    text-shadow: 0 0 8px rgba(0, 230, 230, 0.5); /* Glowing effect */
+}
+
+header h1 {
+    color: #ff6600; /* Orange for main title */
+    text-shadow: 0 0 10px rgba(255, 102, 0, 0.7);
+}
+
+.navbar {
+    background-color: rgba(30, 30, 30, 0.8); /* Slightly transparent dark navbar */
+    border-radius: 15px;
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .nav-link {
+    color: #00e6e6; /* Cyan links */
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar .nav-link:hover {
+    color: #ff6600; /* Orange on hover */
+    border-color: #ff6600;
+    transform: translateY(-2px);
+    text-shadow: 0 0 5px rgba(255, 102, 0, 0.5);
+}
+
+.navbar .nav-link i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* Section Styling */
+section {
+    background-color: #2a2a2a; /* Darker background for sections */
+    border: 1px solid #444;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    position: relative; /* For image positioning if needed */
+}
+
+.lead {
+    color: #b0b0b0;
+    font-size: 1.15rem;
+}
+
+.img-fluid {
+    max-width: 80%; /* Adjust size of problem images */
+    height: auto;
+    border: 2px solid #00e6e6;
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.4);
+}
+
+/* Form Controls */
+.form-control-dark {
+    background-color: #333;
+    color: #00e6e6; /* Cyan input text */
+    border: 1px solid #00e6e6;
+    box-shadow: 0 0 5px rgba(0, 230, 230, 0.3);
+}
+
+.form-control-dark:focus {
+    background-color: #444;
+    color: #ff6600; /* Orange focus text */
+    border-color: #ff6600;
+    box-shadow: 0 0 8px rgba(255, 102, 0, 0.6);
+}
+
+.form-label {
+    color: #eee;
+}
+
+/* Chart Canvas */
+canvas {
+    border: 2px solid #00e6e6 !important; /* Important to override Chart.js default border */
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.4);
+}
+
+/* Table Results */
+.table-dark-results {
+    background-color: #222;
+    color: #f8f9fa;
+    border: 1px solid #444;
+}
+
+.table-dark-results th {
+    background-color: #004d4d; /* Dark cyan for table headers */
+    color: #e0f7fa;
+    border-color: #00e6e6;
+}
+
+.table-dark-results td {
+    border-color: #3a3a3a;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 230, 230, 0.05); /* Slight cyan tint for odd rows */
+}
+
+/* Fixed Action Buttons */
+.fixed-actions-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(42, 42, 42, 0.95);
+    padding: 15px 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    display: flex;
+    gap: 15px; /* Spacing between buttons */
+    z-index: 1000; /* Ensure it stays on top */
+    border: 1px solid #555;
+}
+
+.fixed-actions-container .btn {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.fixed-actions-container .btn-outline-info {
+    color: #00e6e6;
+    border-color: #00e6e6;
+}
+.fixed-actions-container .btn-outline-info:hover {
+    background-color: #00e6e6;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(0, 230, 230, 0.7);
+}
+
+.fixed-actions-container .btn-outline-danger {
+    color: #ff6600;
+    border-color: #ff6600;
+}
+.fixed-actions-container .btn-outline-danger:hover {
+    background-color: #ff6600;
+    color: #1a1a1a;
+    box-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
+}
+
+.fixed-actions-container .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #fff;
+}
+.fixed-actions-container .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+}
+
+.fixed-actions-container .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+.fixed-actions-container .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+}
+
+/* --- Conclusion Card Styles --- */
+
+/* Base style for the conclusion card - hidden state */
+.conclusion-card {
+    /* Oculto por defecto */
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    padding: 0; /* Asegurarse de que no haya padding cuando está oculto */
+    margin-top: 0; /* Asegurarse de que no haya margin cuando está oculto */
+    border: 1px solid transparent; /* Transparente cuando oculto para evitar "parpadeo" del borde */
+    overflow: hidden; /* Muy importante para que max-height funcione */
+
+    /* Transiciones */
+    transition: max-height 0.7s ease-in-out,
+                opacity 0.7s ease-out,
+                transform 0.7s ease-out,
+                padding 0.7s ease-in-out,
+                margin-top 0.7s ease-in-out,
+                border-color 0.7s ease-in-out; /* Transición para el borde también */
+
+    /* Estilos de apariencia base (visibles cuando show) */
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    color: #eee;
+    box-sizing: border-box; /* Incluir padding y borde en el cálculo de la altura */
+}
+
+/* Style for when the 'show' class is added - visible state */
+.conclusion-card.show {
+    max-height: 1000px; /* Un valor lo suficientemente grande para el contenido */
+    opacity: 1;
+    transform: translateY(0);
+    padding: 1.5rem; /* Restaurar el padding original */
+    margin-top: 2.5rem; /* Restaurar el margen superior */
+    border-color: #3a3a3a; /* Borde visible cuando se muestra */
+}
+
+
+/* Keep these internal styles for the header and body within .conclusion-card */
+.conclusion-header {
+    background: linear-gradient(to right, #00e6e6, #ff6600); /* Gradient header */
+    padding: 1rem 1.5rem;
+    color: #1a1a1a;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    border-top-left-radius: 8px; /* Ensure rounded corners */
+    border-top-right-radius: 8px; /* Ensure rounded corners */
+}
+
+.conclusion-body {
+    padding: 1.5rem;
+    color: #c0c0c0;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* Specific styles for the comparison card (if needed) */
+.conclusion-card .conclusion-header.comparison-header {
+    background: linear-gradient(to right, #ff6600, #00e6e6); /* Reverse gradient for comparison header */
+}
+
+.conclusion-body .method-insight {
+    font-style: italic;
+    color: #a0a0a0;
+    margin-top: 1em;
+}
+
+.conclusion-body .comparison-subtitle {
+    color: #ffd700; /* Gold color for comparison subtitle */
+    font-size: 1.2em;
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+/* Custom styles for tables */
+.results-table-container {
+    max-height: 400px; /* Limit height for scrollability */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #00e6e6; /* Border matching chart */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 230, 230, 0.3);
+    margin-top: 1.5rem;
+}
+
+.results-table-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.results-table-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+.results-table-container::-webkit-scrollbar-thumb {
+    background-color: #00e6e6;
+    border-radius: 10px;
+    border: 2px solid #333;
+}
